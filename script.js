@@ -56,9 +56,8 @@ let click = (color) => {
 
     setTimeout(() => {
         createColorElement(color).classList.remove('selected');
-    })
-
-    checkOrder()
+        checkOrder()
+    },250);
 }
 
 //funcao que retorna a cor
@@ -75,3 +74,36 @@ let createColorElement = (color) => {
 }
 
 //funcao para proximo nível do jogo
+let nextLevel = () => {
+    score++;
+    shuftleOrder();
+}
+
+//funcao para game over
+let gameOver = () => {
+    alert(`Pontuação: ${score}\nVocê perdeu o jogo!\nClique em OK para iniciar novamente`);
+    order =[];
+    clickOrder = [];
+
+    playGame();
+}
+
+
+//funcao de inicio de jogo
+let playGame = () => {
+    alert('Bem vindo ao Gênesis! Iniciando novo jogo!');
+    score = 0;
+
+    nextLevel();
+}
+
+
+//eventos de clique para as cores
+green.onclick = () => click(0);
+red.onclick = () => click(1);
+yellow.onclick = () => click(2);
+blue.onclick = () => click(3);
+
+
+//inicio do jogo
+playGame()

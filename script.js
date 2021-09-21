@@ -27,7 +27,7 @@ let shuftleOrder = () => {
 let lightColor = (element, number) => {
     number = number * 500;
     setTimeout(() =>{
-        element.classList.add('selected');
+        element.classList.toggle('selected');
     }, number - 250);
     setTimeout (() => {
         element.classList.remove('selected');
@@ -52,7 +52,7 @@ let checkOrder = () => {
 //funcao para o clique do usuario
 let click = (color) => {
     clickOrder[clickOrder.length] = color;
-    createColorElement(color).classList.add('selected');
+    createColorElement(color).classList.toggle('selected');
 
     setTimeout(() => {
         createColorElement(color).classList.remove('selected');
